@@ -1,0 +1,57 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <h3>Task List</h3>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-dark" style="float:right;" (click)="createTask()">Create</button>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table table-striped">
+      <thead class="thead-inverse">
+        <th>Title</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Due Date</th>
+        <th>Date Created</th>
+        <th>Date Modified</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks; let i = index" (click)="update(i)">
+          <td>{{task.title}}</td>
+          <td>{{task.priority}}</td>
+          <td>{{task.status}}</td>
+          <td>{{task.dueDate}}</td>
+          <td>{{task.dateCreated}}</td>
+          <td>{{task.dateModified}}</td>
+        </tr>
+        <tr *ngIf="create==true">
+          <td>
+            <input type="text" name="title" [(ngModel)]="obj.title">
+          </td>
+          <td>
+            <select name="priority" [(ngModel)]="obj.priority">
+              <option value="Normal">Normal</option>
+              <option value="Major">Major</option>
+              <option value="Critical">Critical</option>
+            </select>
+          </td>
+          <td>
+            <select name="status" [(ngModel)]="obj.status">
+              <option value="ToDo">ToDo</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Done">Done</option>
+            </select>
+          </td>
+          <td>
+            <input type="date" name="dueDate" [(ngModel)]="obj.dueDate" (keydown)="addTask($event)">
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

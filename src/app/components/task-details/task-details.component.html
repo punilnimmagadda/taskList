@@ -1,0 +1,57 @@
+<div class="container-flow" style="border: 1px solid black;">
+  <div class="row">
+    <div class="col-md-12">
+      <b>Title:</b><br>
+      <input type="text" name="title" [(ngModel)]="obj.title" (keydown)="update($event)"><br><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <b>Description:</b><br>
+      <textarea name="desc" [(ngModel)]="obj.desc" (keydown)="update($event)"></textarea><br><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <b>Priority:</b>
+      <select name="priority" [(ngModel)]="obj.priority" (keydown)="update($event)">
+        <option value="Normal">Normal</option>
+        <option value="Major">Major</option>
+        <option value="Critical">Critical</option>
+      </select>
+      <br><br>
+    </div>
+    <div class="col-md-6">
+      <b>Status:</b>
+      <select name="status" [(ngModel)]="obj.status" (keydown)="update($event)">
+        <option value="ToDo">ToDo</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Done">Done</option>
+      </select>
+      <br><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <b>Due Date:</b>
+      <input type="date" name="dueDate" [(ngModel)]="obj.dueDate" (keydown)="update($event)"><br><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <b>Parent:</b>
+      <select name="parent" [(ngModel)]="obj.parent" (keydown)="update($event)">
+        <option value=""></option>
+      </select>
+      <br><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-dark" (click)="delete()">Delete</button>
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-dark" (click)="cancel()" style="float:right;">Cancel</button>
+    </div>
+  </div>
+</div>
