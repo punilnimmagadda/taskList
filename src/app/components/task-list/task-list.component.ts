@@ -21,9 +21,9 @@ export class TaskListComponent implements OnInit {
     localStorage.clear();
 
     this.appService.watchStorage().subscribe((data)=>{
-        this.tasks = data;
-        console.log("from"+this.tasks);
-      });
+      this.tasks = data;
+      console.log("from"+this.tasks);
+    });
   }
 
   update(i)

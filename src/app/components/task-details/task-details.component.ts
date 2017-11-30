@@ -19,16 +19,11 @@ export class TaskDetailsComponent implements OnInit {
 
   delete()
   {
-    // if(localStorage.length==0)
-    // {
-    //   localStorage.setItem("tasks",JSON.stringify(this.tasks));
-    // }
     this.newTask = JSON.parse(localStorage.getItem("tasks"));
     this.newTask.splice(this.appService.index,1);
     localStorage.setItem("tasks",JSON.stringify(this.newTask));
     this.appService.subject.next(JSON.parse(localStorage.getItem("tasks")));
     this.obj = {};
-    // console.log(JSON.parse(localStorage.getItem("tasks")));
   }
 
   cancel()
@@ -50,6 +45,5 @@ export class TaskDetailsComponent implements OnInit {
       this.appService.subject.next(JSON.parse(localStorage.getItem("tasks")));
       this.obj = {};
     }
-    console.log("hello");
   }
 }
