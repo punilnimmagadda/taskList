@@ -4,7 +4,8 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class AppServiceService {
-  
+  showDetails:boolean = false;
+  parents = [];
   subject:Subject<any> = new Subject();
   obj:Subject<any> = new Subject();
   obj$:Observable<any> = this.obj.asObservable();
@@ -35,6 +36,7 @@ export class AppServiceService {
   updateTask()
   {
     this.obj.next((JSON.parse(localStorage.getItem("tasks")))[this.index]);
+    this.showDetails = true;
     console.log(this.obj);
   }
 

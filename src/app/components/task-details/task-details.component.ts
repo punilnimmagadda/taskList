@@ -10,11 +10,11 @@ export class TaskDetailsComponent implements OnInit {
   tasks = [];
   newTask = [];
   obj = {};
+  
   constructor(public appService : AppServiceService) { }
 
   ngOnInit() {
     this.appService.obj$.subscribe((data) => {this.obj = data});
-    console.log("from details "+this.obj);
    }
 
   delete()
@@ -24,11 +24,13 @@ export class TaskDetailsComponent implements OnInit {
     localStorage.setItem("tasks",JSON.stringify(this.newTask));
     this.appService.subject.next(JSON.parse(localStorage.getItem("tasks")));
     this.obj = {};
+    this.appService.showDetails = false;
   }
 
   cancel()
   {
     this.obj = {};
+    this.appService.showDetails = false;
   }
 
   update(event)
@@ -44,6 +46,8 @@ export class TaskDetailsComponent implements OnInit {
       localStorage.setItem("tasks",JSON.stringify(this.newTask));
       this.appService.subject.next(JSON.parse(localStorage.getItem("tasks")));
       this.obj = {};
+      this.appService.showDetails = false;
     }
+    
   }
 }

@@ -4,8 +4,7 @@
       <task-list></task-list>
     </div>  
     <div class="col-md-4">
-      <h3>Task Details</h3>
-      <task-details #taskDetails></task-details>
+      <task-details *ngIf="appService.showDetails==true"></task-details>
     </div>
   </div>  
 </div>  

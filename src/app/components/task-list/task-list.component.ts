@@ -28,8 +28,10 @@ export class TaskListComponent implements OnInit {
 
   update(i)
   {
+    
     this.appService.index = i;
     this.appService.updateTask();
+    this.appService.showDetails = true;
     console.log(this.appService.index);
   }
 
@@ -56,6 +58,7 @@ export class TaskListComponent implements OnInit {
       localStorage.setItem("tasks",JSON.stringify(this.newTask));
       this.appService.subject.next(JSON.parse(localStorage.getItem("tasks")));
       console.log(JSON.parse(localStorage.getItem("tasks")));
+      this.obj = {};
       this.create = false;
     }
   }
