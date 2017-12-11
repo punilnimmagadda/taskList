@@ -31,7 +31,7 @@ export class TaskListComponent implements OnInit {
     
     this.appService.index = i;
     this.appService.updateTask();
-    this.appService.showDetails = true;
+    
     console.log(this.appService.index);
   }
 
